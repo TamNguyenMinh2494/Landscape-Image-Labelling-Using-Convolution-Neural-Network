@@ -100,8 +100,8 @@ def train(train_data_dir, validation_data_dir, model_path):
                                        zoom_range=transformation_ratio,
                                        cval=transformation_ratio,
                                        horizontal_flip=True,
-                                       vertical_flip=True,
-                                      validation_split=0.3) #split automatic (when i use model with 49 classes)
+                                       vertical_flip=True)
+                                     # validation_split=0.3) split automatic (when i use model with 49 classes)
 
     #validation_datagen = ImageDataGenerator(rescale=1. / 255)
 
@@ -109,8 +109,8 @@ def train(train_data_dir, validation_data_dir, model_path):
     train_generator = train_datagen.flow_from_directory(train_data_dir,
                                                         target_size=(img_width, img_height),
                                                         batch_size=batch_size,
-                                                        class_mode='categorical',
-                                                       subset="training") #subset I've added when I train with 49 classes
+                                                        class_mode='categorical')
+                                                     #  subset="training") subset I've added when I train with 49 classes
     # save_to_dir=os.path.join(os.path.abspath(train_data_dir), '../preview')
     # save_prefix='aug',
     # save_format='jpeg')
@@ -188,13 +188,13 @@ def train(train_data_dir, validation_data_dir, model_path):
         json_file.write(model_json)
     return model
 
-#data_dir = os.path.abspath("training")
-#train_dir = os.path.join(os.path.abspath(data_dir), 'training')  # Inside, each class should have it's own folder
-#validation_dir = os.path.join(os.path.abspath(data_dir), 'validation')  # each class should have it's own folder
-#model_dir = os.path.abspath("models")
+data_dir = os.path.abspath("training")
+train_dir = os.path.join(os.path.abspath(data_dir), 'training')  # Inside, each class should have it's own folder
+validation_dir = os.path.join(os.path.abspath(data_dir), 'validation')  # each class should have it's own folder
+model_dir = os.path.abspath("models")
 
-#os.makedirs(os.path.join(os.path.abspath(data_dir), 'preview'), exist_ok=True)
-#os.makedirs(model_dir, exist_ok=True)
+os.makedirs(os.path.join(os.path.abspath(data_dir), 'preview'), exist_ok=True)
+os.makedirs(model_dir, exist_ok=True)
 
 trained_model = train(train_dir, validation_dir, model_dir)  # train model
 
