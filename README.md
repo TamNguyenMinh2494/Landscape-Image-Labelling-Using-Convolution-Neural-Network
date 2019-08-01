@@ -97,7 +97,8 @@ According to result I have after trainning with CNN, I will use Faster R-CNN to 
     sudo pip3.6 install opencv-python
     ```
 8. Upload top_model_weights.h5
-+ We can use https://lutzroeder.github.io/netron/ to upload and see your model.
+    
+    We can use https://lutzroeder.github.io/netron/ to upload and see your model.
 
 9. Upload script.py 
 
@@ -107,7 +108,8 @@ According to result I have after trainning with CNN, I will use Faster R-CNN to 
     python3.6 script.py
     ```
 12. cat result
-![cat_result](/img/gcp_ls.PNG)
+
+    ![cat_result](/img/gcp_ls.PNG)
 
 ## 7. Summary <a name="summary"></a>
 
