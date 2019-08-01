@@ -60,11 +60,17 @@ According to result I have after trainning with CNN, I will use Faster R-CNN to 
 ## 6. Deploy on GCP <a name="#deploy"></a>
 
 1. Create VM instance on GCP
-![create-GCP](img/create.PNG)
+
+![create-GCP](/img/create.PNG)
+
 2. Configure the zone, CPU, disk, ...
-![modify](img/modify.jpg)
+
+![modify](/img/modify.jpg)
+
 3. SSH
-![ssh](img/ssh_gcp.PNG)
+
+![ssh](/img/ssh_gcp.PNG)
+
 4. Update/Upgrade
 
     ```
@@ -92,33 +98,9 @@ According to result I have after trainning with CNN, I will use Faster R-CNN to 
     ```
 8. Upload top_model_weights.h5
 + We can use https://lutzroeder.github.io/netron/ to upload and see your model.
-9. Upload script.py 
-    ```python
-    import cv2
-    import numpy as np
-    from keras import *
 
-    #load top model weight
-    inference_model = models.load_model("top_model_weights.h5")
-    #wget if using image on google or upload file on GCP
-    image_input = cv2.imread("test.jpg")
-    #resize input image
-    image_input = cv2.resize(image_input,dsize=(224,224))
-    #expand the dimension to array 
-    image_input = np.expand_dims(np.asarray(image_input), axis=0)
-    #predict
-    preds = inference_model.predict(image_input)
-    #add labels according to dataset
-    label_map = ["BCS","CHN","CLN","DGT","ODT","SKK","SON","TSN"]
-    i=0
-    data = ""
-    for pred in preds[0]:
-    data +=("%s:%.4f\n"%(label_map[i],pred))
-    i+=1
-    result = open('result.txt','w')
-    result.write(data)
-    result.close()
-    ```
+9. Upload script.py 
+
 10. Upload picture
 11. Run script
     ```
