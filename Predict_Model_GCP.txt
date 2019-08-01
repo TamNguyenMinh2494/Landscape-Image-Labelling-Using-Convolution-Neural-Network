@@ -1,0 +1,16 @@
+﻿Step to predict image on Google Cloud Platform:
+1. Create VM instance on GCP
+2. Configure the zone, CPU, disk, ...
+3. SSH
+4. Update/Upgrade OS
+5. Install openCV: sudo apt install python-opencv
+6. Install python3.6 and pip3.6 or later.
+7. Install tensorflow, keras, opencv into pip3.6
+    + sudo pip3.6 install tensorflow
+    + sudo pip3.6 install keras
+    + sudo pip3.6 install opencv-python
+8. Upload top_model_weights.h5
+9. Upload script.py 
+10. Upload picture
+11. Run script
+12. cat result
