@@ -23,19 +23,19 @@
 
 [9. Acknowledgement](#acknowledgement)
 
-## 1.About Me <a name="#about-me"></a>
+## 1. About Me <a name="about-me"></a>
 
 Hello guys, welcome to my github. My name is ***Nguyen Minh Tam***. Currently, I am a junior at Hoa Sen University, VietNam. I have come to Machine Learning Camp to do my project and meet new friends on other countries. Here, I have memories, experiences, friends that will never be forgotten.
 
-## 2. Why I choose this topic? <a name="#why"></a>
+## 2. Why I choose this topic? <a name="why"></a>
 
 During the rapid urbanization process, the land use management is necessary and inevitable. In fact, the land use management is the work of the governments. However, to enhance accuracy, and quickly update changes, it is necessary to apply modern technologies such as Big Data, Machine Learning (ML) / Deep Learning (DL). Moreover, this must be a source of data for those who want to buy and sell land for reference, to understand government regulations and to protect their interests. The most important issue is to build an automated process that helps people share information about their land or they know. At the same time, processing and storing data is shared automatically to help governments and everyone. So, that are the reason I chose this topic.
 
-## 3. How do I collect data? <a name="#how"></a>
+## 3. How do I collect data? <a name="how"></a>
 
 Because data is also quite large, I have a data collection solution from the collaborators (crowdsource) by building an application for people to take photos and store on it. In addition, I also took photos from the internet and around my home. As a result, I have got the dataset set with 10 classes and more than 10 thousand images. 
 
-## 4. Methodology <a name="#methodology"></a>
+## 4. Methodology <a name="methodology"></a>
 
 After reseached about machine learning and libraries, I refer use transfer learning with **Xception** model and Python programming language for my project. This model gets to a top-1 validation accuracy. **Nesterov Adam** optimizer and categorical_crossentropy is loss function. 
 
@@ -53,11 +53,11 @@ This is a model to classify input images. I have deleted unneccesary images and 
 
 According to result I have after trainning with CNN, I will use Faster R-CNN to detect the characteristics in image one by one, so that I can calculate the ratio and number of occurrences of the object in the image. Combined with results from CNN, using algorithms, I can determine the rate at which class the photo belongs to.
 
-## 5. Result <a name="#result"></a>
+## 5. Result <a name="result"></a>
 
 ![result](/img/gcp_res.PNG)
 
-## 6. Deploy on GCP <a name="#deploy"></a>
+## 6. Deploy on GCP <a name="deploy"></a>
 
 1. Create VM instance on GCP
 
@@ -109,11 +109,11 @@ According to result I have after trainning with CNN, I will use Faster R-CNN to 
 12. cat result
 ![cat_result](/img/gcp_ls.PNG)
 
-## 7. Summary <a name="#summary"></a>
+## 7. Summary <a name="summary"></a>
 
 After all, this project has completed about 75%. In the camp, I had more experience working with Machine Learning and learning how to self-study effectively. Moreover, I have new friends from other countries, so we can share our knowledge and experience and have weekends together. Camp really worthy and interesting.
 
-## 8. Reference <a name="#reference"></a>
+## 8. Reference <a name="reference"></a>
 
 1. CNN: 
 * https://keras.io/applications/#xception
@@ -126,6 +126,6 @@ After all, this project has completed about 75%. In the camp, I had more experie
 * https://tryolabs.com/blog/2018/01/18/faster-r-cnn-down-the-rabbit-hole-of-modern-object-detection/?source=post_page
 * https://medium.com/@fractaldle/brief-overview-on-object-detection-algorithms-ec516929be93
 
-## 9. Acknowledgement <a name="#acknowledgement"></a>
+## 9. Acknowledgement <a name="acknowledgement"></a>
 
 This project will not be completed without an effective working environment from the support of ***Jeju National University and Jeju Developement Center and sponsors***. I would like to express my sincere thanks to **Prof. Yungcheol Byun** and mentor **Dr.Lap Nguyen Trung** for guided and helped me in this camp.
