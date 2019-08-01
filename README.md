@@ -45,11 +45,11 @@ After training with the model, I realized that concluding that image belongs to 
 
 We cannot conclude that it belongs to the urban land because we can also see the road in the image. Therefore, in order to evaluate this photo, we can assume that in this photo, it is both urban land and transportation land, but in proportion, the urban land will occupy more. So, the project is divided into two parts for processing to increase accuracy.
 
-*[Convolutional neural network](#cnn)
+* [Convolutional neural network](#cnn)
 
 This is a model to classify input images. I have deleted unneccesary images and just keep correct images. I use dataset with 10 classes to train the model. For each input image, CNN will try to extract the characteristics of each image. The feature is called characteristic when we can use it to distinguish it from other photos. We do not try to specify which characteristics will be selected but will let CNN automatically perform through training. After filtering, the characteristics will be passed through the neural network layer. Finally, CNN will indicate what the input is likely to be according to the probability distribution for each class.
 
-*[Object detection](#objDetect)
+* [Object detection](#objDetect)
 
 According to result I have after trainning with CNN, I will use Faster R-CNN to detect the characteristics in image one by one, so that I can calculate the ratio and number of occurrences of the object in the image. Combined with results from CNN, using algorithms, I can determine the rate at which class the photo belongs to.
 
@@ -60,11 +60,11 @@ According to result I have after trainning with CNN, I will use Faster R-CNN to 
 ## 6. Deploy on GCP <a name="#deploy"></a>
 
 1. Create VM instance on GCP
-![create-GCP](/img/create.PNG)
+![create-GCP](img/create.PNG)
 2. Configure the zone, CPU, disk, ...
-![modify](/img/modify.jpg)
+![modify](img/modify.jpg)
 3. SSH
-![ssh](/img/ssh_gcp.PNG)
+![ssh](img/ssh_gcp.PNG)
 4. Update/Upgrade
 
     ```
@@ -93,32 +93,32 @@ According to result I have after trainning with CNN, I will use Faster R-CNN to 
 8. Upload top_model_weights.h5
 + We can use https://lutzroeder.github.io/netron/ to upload and see your model.
 9. Upload script.py 
-```python
+    ```python
     import cv2
-import numpy as np
-from keras import *
+    import numpy as np
+    from keras import *
 
-#load top model weight
-inference_model = models.load_model("top_model_weights.h5")
-#wget if using image on google or upload file on GCP
-image_input = cv2.imread("test.jpg")
-#resize input image
-image_input = cv2.resize(image_input,dsize=(224,224))
-#expand the dimension to array 
-image_input = np.expand_dims(np.asarray(image_input), axis=0)
-#predict
-preds = inference_model.predict(image_input)
-#add labels according to dataset
-label_map = ["BCS","CHN","CLN","DGT","ODT","SKK","SON","TSN"]
-i=0
-data = ""
-for pred in preds[0]:
-  data +=("%s:%.4f\n"%(label_map[i],pred))
-  i+=1
-result = open('result.txt','w')
-result.write(data)
-result.close()
-```
+    #load top model weight
+    inference_model = models.load_model("top_model_weights.h5")
+    #wget if using image on google or upload file on GCP
+    image_input = cv2.imread("test.jpg")
+    #resize input image
+    image_input = cv2.resize(image_input,dsize=(224,224))
+    #expand the dimension to array 
+    image_input = np.expand_dims(np.asarray(image_input), axis=0)
+    #predict
+    preds = inference_model.predict(image_input)
+    #add labels according to dataset
+    label_map = ["BCS","CHN","CLN","DGT","ODT","SKK","SON","TSN"]
+    i=0
+    data = ""
+    for pred in preds[0]:
+    data +=("%s:%.4f\n"%(label_map[i],pred))
+    i+=1
+    result = open('result.txt','w')
+    result.write(data)
+    result.close()
+    ```
 10. Upload picture
 11. Run script
     ```
